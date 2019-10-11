@@ -38,9 +38,8 @@ public class AnimalServiceImpl implements AnimalService
     }
 
     @Override
-    public ArrayList<String> getAnimalCount()
+    public List<AnimalCount> getAnimalCount()
     {
-        ArrayList<String> rtnVal=animalrepos.countAnimals().getCount();
-        return rtnVal;
+        return animalrepos.countAnimals();
     }
 }

@@ -12,5 +12,5 @@ public interface AnimalService
 
     Animal findAnimalByType(String type);
 
-    ArrayList<String> getAnimalCount();
+    List<AnimalCount> getAnimalCount();
 }

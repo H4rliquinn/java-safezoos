@@ -5,5 +5,6 @@ import java.util.List;
 
 public interface AnimalCount
 {
-    ArrayList<String> getCount();
+    String getAnimaltype();
+    int getCount();
 }

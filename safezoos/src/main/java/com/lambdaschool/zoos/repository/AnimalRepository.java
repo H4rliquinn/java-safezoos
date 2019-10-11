@@ -8,12 +8,13 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public interface AnimalRepository extends CrudRepository<Animal, Long>
 {
     Animal findByAnimaltype(String type);
 
-    @Query(value = "SELECT animaltype||' '||count(a.animalid) as COUNT FROM animal a JOIN zooanimals z ON a.animalID=z.animalid GROUP BY animaltype", nativeQuery = true)
-    AnimalCount countAnimals();
+    @Query(value = "SELECT animaltype, count(a.animalid) as COUNT FROM animal a JOIN zooanimals z ON a.animalID=z.animalid GROUP BY animaltype", nativeQuery = true)
+     List<AnimalCount> countAnimals();
 
 }
