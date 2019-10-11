@@ -30,16 +30,15 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter
             .antMatchers("/",
                          "/h2-console/**")
             .permitAll()
-            .antMatchers("/users/**",
-                         "/useremails/**")
-            .authenticated()
             // restrict application data...
-            // .antMatchers("/books", "/authors").hasAnyRole("ADMIN", "USER", "DATA")
-            // .antMatchers("/data/**").hasAnyRole("ADMIN", "DATA")
+//             .antMatchers("/books", "/authors").hasAnyRole("ADMIN", "USER", "DATA")
+//             .antMatchers("/data/**").hasAnyRole("ADMIN", "DATA")
             //
             // restrict based on HttpMethod and endpoint
             // .antMatchers(HttpMethod.GET, "/users/user/**").hasAnyRole("USER")
-            .antMatchers("/roles/**")
+                .antMatchers("/animals/**").hasAnyRole("ADMIN","ANIMALDATA","MGR")
+                .antMatchers("/zoos/**").hasAnyRole("ADMIN","MGR","ZOODATA")
+            .antMatchers("/admin/**")
             .hasAnyRole("ADMIN")
             .and()
             .exceptionHandling()
