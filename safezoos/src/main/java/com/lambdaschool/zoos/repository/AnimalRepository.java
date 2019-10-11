@@ -14,7 +14,7 @@ public interface AnimalRepository extends CrudRepository<Animal, Long>
 {
     Animal findByAnimaltype(String type);
 
-    @Query(value = "SELECT animaltype, count(a.animalid) as COUNT FROM animal a JOIN zooanimals z ON a.animalID=z.animalid GROUP BY animaltype", nativeQuery = true)
+    @Query(value = "SELECT animaltype, count(a.animalid) as count FROM animal a JOIN zooanimals z ON a.animalID=z.animalid GROUP BY a.animalid", nativeQuery = true)
      List<AnimalCount> countAnimals();
 
 }
